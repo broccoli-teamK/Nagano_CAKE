@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 # 会員側のルーティング
 
   scope module: :public do
-    get '/' => 'homes#top'
+    root to: 'homes#top'
     get '/about' => 'homes#about'
 
     devise_for :customers
