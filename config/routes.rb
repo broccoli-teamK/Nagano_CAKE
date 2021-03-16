@@ -1,12 +1,27 @@
 Rails.application.routes.draw do
 
+# 管理者側のルーティング
+
+  # 管理者側ログイン
+  devise_for :admins
+
+  # 管理者側機能
+  namespace :admin do
+    get '/' => 'homes#top'
+    resources :products, only: [:index, :new, :create, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_products, only: [:update]
+  end
+
 # 会員側のルーティング
+
+  devise_for :customers
 
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
-
-    devise_for :customers
 
     resources :products, only: [:show, :index]
     resources :cart_products, only: [:index, :create, :update, :destroy]
@@ -19,27 +34,6 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show'
     get '/customers/confirm' => 'customers#confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
-  end
-
-
-# 管理者側のルーティング
-
-  # 管理者側ログイン
-  devise_for :admins, skip: :all
-  devise_scope :admin do
-    get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
-    post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
-    delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
-  end
-
-  # 管理者側機能
-  namespace :admin do
-    get '/' => 'homes#top'
-    resources :products, only: [:index, :new, :create, :show, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update]
-    resources :order_products, only: [:update]
   end
 
 
