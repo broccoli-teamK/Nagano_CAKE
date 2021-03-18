@@ -3,7 +3,7 @@
     <div class="col">
       <h4 class="mt-4 mb-4"><span class="bg-light">　ログイン　</span></h6>
       <h6 class="mt-4 mb-4 ml-5"><span class="bg-light">　会員の方はこちらからログイン　</span></h5>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
         <div class="form-group form-inline">
           <%= f.label :email, 'メールアドレス', class:"col-sm-4 control-label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"form-control" %>
