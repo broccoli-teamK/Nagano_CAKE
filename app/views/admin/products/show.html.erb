@@ -1,2 +1,48 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>商品詳細</h1>
+<span><%= attachment_image_tag products_image_id, :image, :fill, 40, 40, size:"40x40" %></span>
+<div classs="group">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    商品名
+                </td>
+                <td>
+                    <span><%= ＠products.name %></span>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    商品説明
+                </td>
+                <td>
+                    <span><%= ＠products.introduction %></span>
+                </td>
+                <td>
+                    ジャンル
+                </td>
+                <td>
+                    <span><%= ＠products.genre_id %></span>
+                </td>
+                <td>
+                    税込価格（税抜価格）
+                </td>
+                <td>
+                    <span><%= ＠products.price %></span>
+                </td>
+                <td>
+                    販売ステータス
+                </td>
+                <td>
+                    <span><%= ＠products.sales_status %></span>
+                </td>
+            </tr>
+        </tbody>
+        <%= f.submit "編集する", class: "btn btn-secondary" %>
+</div>
