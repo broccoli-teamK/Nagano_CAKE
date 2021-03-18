@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get '/customers/my_page' => 'customers#show'
     get '/customers/confirm' => 'customers#confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
 
