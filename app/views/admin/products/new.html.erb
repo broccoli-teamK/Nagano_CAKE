@@ -1,0 +1,95 @@
+ <h2>商品新規登録</h2>
+ <div style="text-align:center;">
+        <div class="btn-group"  role="group">
+            <%= form_with model:@product, local:true do |f| %>
+                <div classs="group">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text-left">
+                                           商品画像
+                                        </P>
+                                    </td>
+                                    <td>
+                                        <p class="text-left">
+                                            <%= f.attachment_field :image_id, placeholder: "image_id" %>
+                                        </P>
+                                    </td>
+                                 </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-left">
+                                            商品名
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="text-left">
+                                           <%=  f.text_field :name,  size: 10 , autofocus: true, id:"inputName", placeholder:"商品名", size: "40"%>
+                                        </P>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-left">
+                                            商品説明
+                                        </P>
+                                    </td>
+                                    <td>
+                                        <p class="text-left">
+                                            <%= f.text_area :introduction, autofocus: true, id:"inputName", placeholder:"ここに説明文を記述します" , size: "40x5"%>
+                                        </p>
+                                    </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-left">
+                                            ジャンル
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="text-left">
+                                            <%= f.select :genre_id, {'ケーキ': 1, 'プリン': 2, '焼き菓子': 3, 'キャンディ': 4}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-left">
+                                            税抜き価格
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="text-left">
+                                            <%=  f.text_field :price, autofocus: true, id:"inputName", placeholder:"1000", size: "40" %>
+                                            円
+                                        </p>    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-left">
+                                            販売ステータス
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="text-left">
+                                        <%= f.radio_button :sales_status, :販売中 %>販売中
+                                      　<%= f.radio_button :sales_status, :販売停止 %>販売停止中
+                                      　</p>
+                                    </td>
+                                </tr>
+                            </p>
+                        </tbody>
+                    </table>
+                    <%= f.submit "新規登録", class: "btn btn-secondary" %>
+                </div>
+    　　</div>
+     </div>
+<% end %>
