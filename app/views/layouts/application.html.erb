@@ -10,22 +10,23 @@
   </head>
 
   <body>
-    <header>
-<!--以下整え-->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning border-bottom shadow-sm">
         <div class="container">
-          <a class="navbar-brand p-1 text-black" href="/">
-            logo.png
+          <!--ロゴ画像(root_pathにリンク)-->
+          <a class="navbar-brand p-1" href="/">
+            [ここにロゴ画像]
           </a>
-      <!--ログイン後に表示される文字とか-->
+          <!--ログイン成功時やあログアウト時に表示されるnotice-->
           <id class="notice"><%= flash[:notice] %></id>
+          <!---->
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto ">
 <!--会員がログインしている時-->
               <% if customer_signed_in? %>
                 <%= render 'layouts/customer_header' %>
