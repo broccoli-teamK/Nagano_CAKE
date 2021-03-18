@@ -32,29 +32,14 @@
 <!--管理者がログインしている時-->
               <% elsif admin_signed_in? %>
                 <%= render 'layouts/admin_header' %>
-              <% else %>
 <!--ログインしていないユーザー-->
-                 <li class="nav-item">
-                  <%= link_to about_path, class: 'nav-link text-dark' do %>
-                  About
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to user_path(current_user.id), class: 'nav-link text-dark' do %>
-                  商品一覧
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
-                  新規登録
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to new_customer_session_path, class: 'nav-link text-dark' do %>
-                  ログイン
-                  <% end %>
-                </li>
+              <% else %>
+                <%= render 'layouts/header' %>
               <% end %>
+             </ul>
+          </div>
+        </div>
+      </nav>
 
     </header>
 
