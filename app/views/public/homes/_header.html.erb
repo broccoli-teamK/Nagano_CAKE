@@ -1,0 +1,18 @@
+ <header>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-warning border-bottom shadow-sm">
+  <!-- <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5> -->
+      <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to root_path do %>
+       <%= image_tag"logo.png"%>
+      <%end%></h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <!-- <a class="p-2 text-dark" href="#">Features</a> -->
+        <a class="p-2 text-dark"><%= link_to "About", about_path , class:"text-white"%></a>
+        <!-- <a class="p-2 text-dark" href="#">Enterprise</a> -->
+        <a class="p-2 text-dark"><%= link_to "商品一覧", products_path, class:"text-white" %></a>
+        <!-- <a class="p-2 text-dark" href="#">Support</a> -->
+        <a class="p-2 text-dark"><%= link_to "新規登録", new_customer_registration_path, class:"text-white" %></a>
+        <!-- <a class="p-2 text-dark" href="#">Pricing</a> -->
+        <a class="p-2 text-dark"><%= link_to "ログイン", new_customer_session_path, class:"text-white" %></a>
+      </nav>
+    </div>
+  </header>
