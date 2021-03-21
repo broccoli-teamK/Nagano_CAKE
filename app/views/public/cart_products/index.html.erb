@@ -17,7 +17,6 @@
           </thead>
         </tr>
         
-    
       <% @cart_products.each do |cart_product| %>
         <tr>
           <td ><%= cart_product.product.name %></td>
@@ -29,12 +28,14 @@
           <td><%= cart_product.quantity * cart_product.product.price %></td>
           <td><%= link_to "削除", cart_product_path(cart_product), method: :delete ,class:"btn btn-danger"%></td>
         </tr>
-      <% end %>
+     <% end %>
     </table>
     </div>
+    
     <table class="table col-lg-3">
         <th class="thead-light">合計金額</th>
-        <th><%=%></th>
+        
+        <th><%= @total_price %></th>
     </table>
     
     <%= link_to "買い物を続ける", products_path ,class:"btn btn-primary"%>

@@ -2,6 +2,12 @@ class Public::CartProductsController < ApplicationController
   
   def index
     @cart_products = current_customer.cart_products
+    
+    @total_price = 0
+    @cart_products.each do |cp|
+      # @total_price = @total_price + (cp.quantity * cp.product.price)
+      @total_price += cp.quantity * cp.product.price
+    end
   end
 
   def create
