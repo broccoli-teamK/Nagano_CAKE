@@ -18,8 +18,8 @@ class Public::AddressesController < ApplicationController
   end
 
   def update
-    @book = Address.find(params[:id])
-    if @book.update(address_params)
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
       redirect_to addresses_path
     else
       render :edit
