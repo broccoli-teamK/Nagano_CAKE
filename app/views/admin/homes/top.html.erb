@@ -15,7 +15,9 @@
       <tr>
         <th scope="row"><%= order.created_at %></th>
         <td><%= order.customer.last_name %> <%= order.customer.first_name %></td>
-        <td><%= order.order_products.count %></td>
+        <td>
+          <%= order.order_products.all.sum(:quantity) %>
+        </td>
         <td><%= order.order_status %></td>
       </tr>
       <% end %>
