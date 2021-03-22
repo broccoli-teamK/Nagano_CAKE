@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
       <h4 class="mt-4 mb-4"><span class="bg-light">　注文情報確認　</span></h4>
-      <div class="d-flex col-sm-8">
+      <div class="d-flex col-sm-10">
         <table class="table table-bordered mt-4 mb-4">
           <thead>
             <tr>
@@ -15,9 +15,9 @@
           <% @cart_product.each do |cart_product| %>
           <tbody>
             <td><%= cart_product.product.name %></td>
-            <td><%= cart_product.product.price %></td>
+            <td><%= cart_product.product.price.to_s(:delimited, delimiter: ',') %></td>
             <td><%= cart_product.quantity %></td>
-            <td><%= cart_product.quantity * cart_product.product.price %></td>
+            <td><%= (cart_product.quantity * cart_product.product.price).to_s(:delimited, delimiter: ',') %></td>
           </tbody>
           <% end %>
         </table>
@@ -25,15 +25,15 @@
           <table class="table table-bordered mt-4 mb-4">
             <tr>
               <td class="table-active">送料</td>
-              <td><%= @order.postage %></td>
+              <td><%= @order.postage.to_s(:delimited, delimiter: ',') %></td>
             </tr>
             <tr>
               <td class="table-active">商品合計</td>
-              <td><%= @order.total_price %></td>
+              <td><%= @order.total_price.to_s(:delimited, delimiter: ',') %></td>
             </tr>
             <tr>
               <td class="table-active">請求金額</td>
-              <td><%= @order.postage + @order.total_price %></td>
+              <td><%= @billing_amount.to_s(:delimited, delimiter: ',') %></td>
             </tr>
           </table>
         </div>
