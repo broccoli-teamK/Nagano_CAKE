@@ -17,5 +17,6 @@ module NaganoCake
     # the framework and any gems in your application.
 
     config.time_zone = 'Asia/Tokyo'
+    # config.i18n.default_locale = :ja
   end
 end
