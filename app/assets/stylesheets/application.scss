@@ -13,6 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ .navbar-brand {
+  background: url("logo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 250px;
+}
+
 
 @import "bootstrap";
 @import 'font-awesome-sprockets';
