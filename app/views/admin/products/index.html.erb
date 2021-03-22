@@ -1,7 +1,8 @@
 <h1>商品一覧</h1>
-<%= link_to new_admin_product_path %>
+<%= link_to "New Product", new_admin_product_path %>
 <div style="text-align:center;">
         <div class="btn-group"  role="group">
+             <table class="table table-hover">
              <thead>
                     <tr>
                         <th>
@@ -21,26 +22,27 @@
                         </th>
                     </tr>
              </thead>
+             <% @products.each do |product| %>
              <tbody>
-                 <% @products.each do |book| %>
                      <tr>
                          <td>
-                             <span><%= products.id %></span>
+                             <span><%= product.id %></span>
                          </td>
                           <td>
-                             <span><%= link_to products.name, admin_product_path(products.id) %></span>
+                             <span><%= link_to admin_product_path(product.id) do %><%= product.name %><% end %></span>
                          </td>
                           <td>
-                             <span><%= products.price %></span>
+                             <span><%= product.price %></span>
                          </td>
                           <td>
-                             <span><%= products.genre_id %></span>
+                             <span><%= product.genre_id %></span>
                          </td>
                           <td>
-                             <span><%= products.sales_status %></span> 
+                             <span><%= product.sales_status %></span>
                          </td>
                      </tr>
-                 <% end %>
              </tbody>
+             <% end %>
+             </table>
         </div>
 </div>
