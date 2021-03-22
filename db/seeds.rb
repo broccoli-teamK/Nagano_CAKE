@@ -10,3 +10,14 @@ Admin.create!(
   email: 'Nagano-cake@admin.com',
   password: 'admin_sign_in'
   )
+  
+10.times do |n|
+  Product.create!(
+   genre_id: '1',
+   name: "ケーキ#{n+1}",
+   introduction: "ケーキです",
+   price: "1000",
+   image: File.open('./app/assets/images/cake.png'),
+   sales_status: true
+  )
+end
