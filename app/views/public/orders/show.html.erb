@@ -1,2 +1,57 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+      <h1>注文情報</h1>
+        <table class="table table-bordered mt-4 mb-4">
+          <thead>
+            <tr>
+              <th class="table-active">注文日</th>
+              <th class="table-active">配送先</th>
+              <th class="table-active">注文商品</th>
+              <th class="table-active">支払金額</th>
+              <th class="table-active">ステータス</th>
+              <th class="table-active">注文詳細</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.each do |order| %>
+              <tr><%= order.created_at %></tr>
+              <tr><%= order.shipping_address %></tr>
+              <tr><%= order.product_name %></tr>
+              <tr><%= order.total_price %>円</tr>
+              <tr><%= order.order_status %></tr>
+            <% end %>
+          </tbody>
+        </table>
+    <div class="col-sm-12">
+      <h4 class="mt-4 mb-4"><span class="bg-light">注文内容</span></h4>
+      <div class="d-flex col-sm-8">
+        <table class="table table-bordered mt-4 mb-4">
+          <thead>
+            <tr>
+              <th class="table-active">商品名</th>
+              <th class="table-active">単価(税込)</th>
+              <th class="table-active">数量</th>
+              <th class="table-active">小計</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <div class="col-sm-3 ml-5">
+            <h2>請求情報</h2>
+          <table class="table table-bordered mt-4 mb-4">
+            <tr>
+              <td class="table-active">送料</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="table-active">商品合計</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="table-active">請求金額</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
