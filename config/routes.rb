@@ -38,8 +38,11 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
 
     resources :products, only: [:show, :index]
-    resources :cart_products, only: [:index, :create, :update, :destroy]
-    delete '/cart_products/destroy_all' => 'cart_products#destroy_all', as:'destroy_all'
+    resources :cart_products, only: [:index, :create, :update, :destroy] do
+    collection do
+    delete 'destroy_all'
+    end
+    end
     resources :orders, only: [:index, :new, :create]
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks' => 'orders#thanks'
