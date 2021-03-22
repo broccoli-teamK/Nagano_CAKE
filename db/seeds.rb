@@ -23,3 +23,15 @@ Admin.create!(
   )
 end
 
+10.times do |n|
+  Order.create!(
+   customer_id:"1",
+   shipping_postal_code:"5555555",
+   shipping_address:"東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階",
+   shipping_name:"山田花子",
+   payment_method: 0,
+   total_price:"5890",
+   postage:"800",
+   order_status:0,
+)
+end
