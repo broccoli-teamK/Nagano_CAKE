@@ -1,6 +1,7 @@
 <div class="col-md-10 mt-4 ml-">
   <h4 class="mt-4 mb-4"><span class="bg-light">　注文履歴詳細　</span></h4>
 
+　<div class="col-md-5">
   <div class="row">
   <table class="table table-borderless">
     <tr>
@@ -28,10 +29,16 @@
     </tr>
     <tr>
       <th scope="row">注文ステータス</th>
-      <td>ここにフォーム</td>
+      <td>
+        <%= form_with model: @order, url: admin_order_path(@order), local:true, class: "form-row" do |f| %>
+          <%= f.select :order_status, Order.order_statuses_i18n.invert %>
+          <%= f.submit "更新" %>
+        <% end %>
+      </td>
     </tr>
   </table>
   </div>
+</div>
 </div>
 
 <div class="row">
@@ -43,9 +50,7 @@
           <th scope="col">単価(税込)</th>
           <th scope="col">数量</th>
           <th scope="col">小計</th>
-          <th scope="col">
-            注文ステータス [更新]
-          </th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -55,7 +60,12 @@
           <td><%= order_product.tax_in_price %></td>
           <td><%= order_product.quantity %></td>
           <td><%= order_product.sub_total%></td>
-          <td>製作ステータス　[更新]</td>
+          <td>
+            <%= form_with model: @order, url: admin_order_path(@order), local:true, class: "form-row" do |f| %>
+              <%= f.select :product_status, OrderProduct.product_statuses_i18n.invert %>
+              <%= f.submit "更新" %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
