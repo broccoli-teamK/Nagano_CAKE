@@ -1,2 +1,82 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="col-md-10 mt-4 ml-">
+  <h4 class="mt-4 mb-4"><span class="bg-light">　注文履歴詳細　</span></h4>
+
+  <div class="row">
+  <table class="table table-borderless">
+    <tr>
+      <th scope="row">購入者</th>
+      <td>
+        <%= link_to admin_customer_path(@order.customer.id) do %>
+          <%= @order.customer.last_name %> <%= @order.customer.last_name %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">注文日</th>
+      <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+    </tr>
+    <tr>
+      <th scope="row">配送先</th>
+      <td>
+        〒<%= @order.shipping_postal_code %> <%= @order.shipping_address %><br />
+        <%= @order.shipping_name %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">支払方法</th>
+      <td><%= @order.payment_method %></td>
+    </tr>
+    <tr>
+      <th scope="row">注文ステータス</th>
+      <td>ここにフォーム</td>
+    </tr>
+  </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mt-4">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">商品名</th>
+          <th scope="col">単価(税込)</th>
+          <th scope="col">数量</th>
+          <th scope="col">小計</th>
+          <th scope="col">
+            注文ステータス [更新]
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.order_products.each do |order_product| %>
+        <tr>
+          <td><%= order_product.product.name %></td>
+          <td><%= order_product.tax_in_price %></td>
+          <td><%= order_product.quantity %></td>
+          <td><%= order_product.sub_total%></td>
+          <td>製作ステータス　[更新]</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6 mt-4">
+    <div class="total-box">
+      <table>
+        <tr>
+          <th>商品合計</th>
+          <td><%= @order.total %></td>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <td><%= @order.postage %></td>
+        </tr>
+        <tr>
+          <th>請求金額合計</th>
+          <td><%= @billing %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
