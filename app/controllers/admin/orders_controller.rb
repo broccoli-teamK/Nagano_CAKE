@@ -3,6 +3,7 @@ class Admin::OrdersController < ApplicationController
   def show
 
     @order = Order.find(params[:id])
+    @billing = @order.total + @order.postage
 
   end
 
