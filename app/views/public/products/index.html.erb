@@ -12,7 +12,7 @@
    <div class="row">
        <% @products.each do |product| %>
          <div class="col-lg-6 mb-5"> 
-           <%=link_to attachment_image_tag(@product, :image , :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), product_path(product) %>
+           <%=link_to attachment_image_tag(product, :image , :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), product_path(product) %>
             <div class="d-block">
               <%= product.name %>
               <div class="d-block">
@@ -31,3 +31,5 @@
      </div>
    </div>
  </div>  
+ 
+ 
