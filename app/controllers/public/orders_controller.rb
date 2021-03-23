@@ -1,10 +1,12 @@
 class Public::OrdersController < ApplicationController
   def index
     @orders = Order.all
+    @product = OrderProduct.where(product_id:product.id)
   end
 
   def show
     @order = Order.find(params[:id])
+    @order_product = OrderProduct.find(params[:id])
   end
 
   def new
@@ -44,5 +46,13 @@ class Public::OrdersController < ApplicationController
   
   def order_params
     params.require(:order).permit(:shipping_postal_code, :shipping_address, :shipping_name, :payment_method, :total_price, :postage)
+  end
+  
+  def products_name_params
+    params.require(:product).permit(:genre, :name, :introduction, :price, :image, :sales_status)
+  end
+  
+  def order_product_params
+    params.require(:order_product).permit(:order, :product, :quantity, :product_status, :tax_in_price)
   end
 end

@@ -1,53 +1,24 @@
-  <div class="top">
-    <div class="main text-light text-monospace">
+  <body class="top">
+    <div class="main text-warning text-monospace">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
           <h1 class="display-4">ようこそ！！ながのcakeへ!!</h1>
           <p class="lead">このサイトは、ケーキ販売のECサイトになります。会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。</p>
         </div>
         <div class="container">
-          <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
+          <div class="mb-3 col-lg-5">
+            <div class="card shadow-sm">
               <div class="card-header">
-                <h4 class="my-0 font-weight-normal"></h4>
+                <h4 class="font-weight-normal text-danger text-left">新着商品</h4>
               </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"></small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card mb-4 shadow-sm">
-              <div class="card-header">
-                <h4 class="my-0 font-weight-normal"></h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"></small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card mb-4 shadow-sm">
-              <div class="card-header">
-                <h4 class="my-0 font-weight-normal"></h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"></small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
+              
+                <div class="text-dark mt-4">
+                  <% @top.each.with_index(1) do |top, i| %>
+                        <div class=""><%=link_to attachment_image_tag(top, :image , :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), product_path(top) %></div>
+                        <h2 class="text-center"><%= top.name %></h2>
+                        <h5 class="text-center"><%= top.introduction %></h5>
+                        <h4 class="text-center">¥<%= top.price %>円(税込)</h4>
+                        <% end %>
+                </div>
           </div>
         </div>
     </div>
@@ -60,4 +31,4 @@
       </div>
     </div>
 
-</div>
+</body>

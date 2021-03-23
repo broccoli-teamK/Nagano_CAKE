@@ -2,25 +2,20 @@
   <div class="row">
       <h1>注文情報</h1>
         <table class="table table-bordered mt-4 mb-4">
-          <thead>
             <tr>
               <th class="table-active">注文日</th>
               <th class="table-active">配送先</th>
               <th class="table-active">注文商品</th>
               <th class="table-active">支払金額</th>
               <th class="table-active">ステータス</th>
-              <th class="table-active">注文詳細</th>
             </tr>
-          </thead>
-          <tbody>
-            <% @order.each do |order| %>
-              <tr><%= order.created_at %></tr>
-              <tr><%= order.shipping_address %></tr>
-              <tr><%= order.product_name %></tr>
-              <tr><%= order.total_price %>円</tr>
-              <tr><%= order.order_status %></tr>
-            <% end %>
-          </tbody>
+            <tr>
+              <td><%= @order.created_at %></td>
+              <td><%= @order.shipping_address %></td>
+              <td><%= %></td>
+              <td><%= @order.total_price %>円</td>
+              <td><%= @order.order_status %></td>
+            </tr>  
         </table>
     <div class="col-sm-12">
       <h4 class="mt-4 mb-4"><span class="bg-light">注文内容</span></h4>
@@ -33,24 +28,29 @@
               <th class="table-active">数量</th>
               <th class="table-active">小計</th>
             </tr>
-          </thead>
-          <tbody>
-          </tbody>
+           <% @order_product.each do |order_product| %>
+            <tr>
+              <td><%= order_product.product.name %></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% end %>
         </table>
-        <div class="col-sm-3 ml-5">
+        <div class="col-lg-4 ml-5">
             <h2>請求情報</h2>
           <table class="table table-bordered mt-4 mb-4">
             <tr>
               <td class="table-active">送料</td>
-              <td></td>
+              <td><%= @order.postage %>円</td>
             </tr>
             <tr>
               <td class="table-active">商品合計</td>
-              <td></td>
+              <td><%= @order.total_price %>円</td>
             </tr>
             <tr>
               <td class="table-active">請求金額</td>
-              <td></td>
+              <td><%= @order.postage + @order.total_price %>円</td>
             </tr>
           </table>
         </div>
