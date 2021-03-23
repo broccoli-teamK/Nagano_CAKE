@@ -1,4 +1,3 @@
-<%= render "public/homes/header"%>
 <div class="container">
   <div class="row">
       <h1>ショッピングカート</h1>
@@ -22,7 +21,7 @@
           <td ><%= cart_product.product.name %></td>
           <td><%= cart_product.product.price %></td>
           <td><%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch do |f|%>
-                  <%=f.select :quantity, options_for_select([["1", 1],["2", 2],["3",3],["4",4],["5",5],["6",6],["6",6],["7",7],["8",8],["9",9],["10",10]], {selected: cart_product.quantity.to_i} )%>
+                  <%=f.select :quantity, options_for_select([["1", 1],["2", 2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]], {selected: cart_product.quantity.to_i} )%>
                   <%=f.submit "変更",class:"btn btn-success" %>
                   <% end %></td>
           <td><%= cart_product.quantity * cart_product.product.price %></td>

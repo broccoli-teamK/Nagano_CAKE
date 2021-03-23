@@ -1,23 +1,27 @@
 <h1>注文履歴一覧</h1>
 <table class="table table-bordered mt-4 mb-4">
-          <thead>
-            <tr>
-              <th class="table-active">注文日</th>
-              <th class="table-active">配送先</th>
-              <th class="table-active">注文商品</th>
-              <th class="table-active">支払金額</th>
-              <th class="table-active">ステータス</th>
-              <th class="table-active">注文詳細</th>
-            </tr>
-          </thead>
-          <tbody>
+          <tr>
+            <th class="table-active">注文日</th>
+            <th class="table-active">配送先</th>
+            <th class="table-active">注文商品</th>
+            <th class="table-active">支払金額</th>
+            <th class="table-active">ステータス</th>
+            <th class="table-active">注文詳細</th>
+          </tr>
+        
+          
             <% @orders.each do |order| %>
-              <tr><%= order.created_at %></tr>
-              <tr><%= order.shipping_address %></tr>
-              <tr><%= order.product_name %></tr>
-              <tr><%= order.total_price %>円</tr>
-              <tr><%= order.order_status %></tr>
-              <tr><%= link_to "表示する" ,orders_path, class:"btn btn-primary" %></tr>
+            <tr>
+              <td><%= order.created_at %></td>
+              <td><%= order.shipping_address %></td>
+              <td><% @product.each do |product| %>
+              <% product.name %>
+              <% end %>
+              </td>
+              <td><%= order.total_price %>円</tb>
+              <td><%= order.order_status %></td>
+              <td><%= link_to "表示する" ,order_path(order), class:"btn btn-primary" %></td>
+              </tr>
             <% end %>
-          </tbody>
-        </table>
+          
+</table>

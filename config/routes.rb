@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :new, :create]
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks' => 'orders#thanks'
-    get '/orders/:id' => 'orders#show'
+    get '/orders/:id' => 'orders#show', as: 'order'
     resources :customers, only: [:edit, :update]
     get '/customers/my_page' => 'customers#show'
     get '/customers/confirm' => 'customers#confirm'
