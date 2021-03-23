@@ -21,19 +21,4 @@ class Order < ApplicationRecord
     total
   end
 
-# 注文ステータスと製品ステータス
-  def paid_up?
-    self.exists?(:order_status, 1)
-  end
-
-  def product_making?
-    self.order_products.find(:product_status, 2).any?
-  end
-
-  def completed?
-    self.order_products
-  end
-
-
-
 end
