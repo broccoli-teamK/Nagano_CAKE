@@ -13,7 +13,11 @@
     <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <th scope="row"><%= l order.created_at %></th>
+        <th scope="row">
+          <%= link_to admin_order_path(order.id) do %>
+            <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          <% end %>
+        </th>
         <td><%= order.customer.last_name %> <%= order.customer.first_name %></td>
         <td>
           <%= order.order_products.all.sum(:quantity) %>
