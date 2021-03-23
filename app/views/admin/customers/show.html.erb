@@ -33,12 +33,16 @@
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td><%= @customer.customer_status %></td>
+          <% if @customer.customer_status==true %>
+            <td><p class="text-success font-weight-bold"><%= @customer.customer_status ? '有効' : '退会' %></p></td>
+          <% else %>
+            <td><p class="text-black-50"><%= @customer.customer_status ? '有効' : '退会' %></p></td>
+          <% end %>
         </tr>
       </table>
       <div class="text-center">
           <%= link_to "編集する", edit_admin_customer_path(@customer), class:"col-sm-2 btn btn-success mt-3" %>
-          <%= link_to "注文履歴一覧を見る", admin_path, class:"col-sm-2 btn btn-primary mt-3 ml-5"%>
+          <%= link_to "注文履歴一覧を見る", admin_path(@customer), class:"col-sm-2 btn btn-primary mt-3 ml-5"%>
         </div>
     </div>
   </div>
