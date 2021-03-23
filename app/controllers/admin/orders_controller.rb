@@ -10,7 +10,14 @@ class Admin::OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
-    redirect_to admin_order_path(order.id)
+
+    if
+      order_product = OrderProduct.where(:order_id, order.id)
+      order_product.update_attributes(:order_status, "1")
+      redirect_to admin_order_path(order.id)
+    else
+      redirect_to admin_order_path(order.id)
+    end
 
   end
 
@@ -18,6 +25,10 @@ class Admin::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:order_status)
+  end
+  
+  def order_product_params
+  params.require(:order_product).permit(:product_status)
   end
 
 
