@@ -1,17 +1,17 @@
- 
+
  <div class="container">
    <div class="row">
-     <div class="col-lg-5"> 
+     <div class="col-lg-5">
        <h1>商品一覧</h1>
        <h3>全<%=Product.count%>件</h3>
      </div>
    </div>
- </div>  
- 
+ </div>
+
  <div class="container">
    <div class="row">
        <% @products.each do |product| %>
-         <div class="col-lg-6 mb-5"> 
+         <div class="col-lg-6 mb-5">
            <%=link_to attachment_image_tag(product, :image , :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), product_path(product) %>
             <div class="d-block">
               <%= product.name %>
@@ -23,13 +23,12 @@
        <% end %>
    </div>
  </div>
- 
+
  <div class="container">
    <div class="row">
-     <div class="col-lg-5"> 
+     <div class="col-lg-5">
        <%= paginate @products %>
      </div>
    </div>
- </div>  
- 
- 
+ </div>
+

@@ -1,2 +1,49 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="cpntainer">
+  <div class="row">
+    <div class="col">
+      <h4 class="mt-4 mb-4"><span class="bg-light">　<%= @customer.last_name + @customer.first_name %>さんの会員情報編集　</span></h4>
+      <%= form_with model:@customer, url: admin_customer_path ,method: :patch, local:true do |f| %>
+        <div class="form-group form-inline">
+          <%= f.label :"会員ID", class:"col-sm-3 control-label ml-5" %>
+          <p class="col-sm-2 ml-4"><%= @customer.id %></p>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :"氏名", class:"col-sm-4 control-label" %>
+          <%= f.text_field :last_name, autofocus: true, placeholder: "令和", class:"col-sm-2 form-control" %>
+          <%= f.text_field :first_name, autofocus: true, placeholder: "道子", class:"col-sm-2 form-control ml-5" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :"フリガナ", class:"col-sm-4 control-label" %>
+          <%= f.text_field :last_name_kana, autofocus: true, placeholder: "レイワ", class:"col-sm-2 form-control" %>
+          <%= f.text_field :first_name_kana, autofocus: true, placeholder: "ミチコ", class:"col-sm-2 form-control ml-5" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :email, 'メールアドレス', class:"col-sm-4 control-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"col-sm-2 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-sm-4 control-label" %>
+          <%= f.text_field :postal_code, autofocus: true, placeholder: "0000000", class:"col-sm-2 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :address, "住所", class:"col-sm-4 control-label" %>
+          <%= f.text_field :address, autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0", class:"col-sm-5 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :phone_number, "電話番号(ハイフンなし)", class:"col-sm-4 control-label" %>
+          <%= f.text_field :phone_number, autofocus: true, placeholder: "00000000000", class:"col-sm-2 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :customer_status, "会員ステータス", class:"col-sm-4 control-label" %>
+          <%= f.radio_button :customer_status, TRUE, checked: true %>
+          <h5 class="mt-2 ml-1">有効</h5>
+          <%= f.radio_button :customer_status, FALSE, class:"ml-4" %>
+          <h5 class="mt-2 ml-1">退会</h5>
+        </div>
+        <div class="text-center">
+          <%= f.submit "変更を保存", class:"col-sm-2 btn btn-success mt-3" %>
+        </div>
+     <% end %>
+    </div>
+  </div>
+</div>
