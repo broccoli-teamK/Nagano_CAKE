@@ -12,11 +12,12 @@
           
             <% @orders.each do |order| %>
             <tr>
-              <td><%= order.created_at %></td>
-              <td><%= order.shipping_address %></td>
-              <td><% @product.each do |product| %>
-              <% product.name %>
-              <% end %>
+              <td><%= order.created_at.strftime('%Y/%m/%d')  %></td>
+              <td>〒<%= order.shipping_postal_code %><br><%= order.shipping_address %><br><%= order.shipping_name%></td>
+              <td>
+                <% order.order_products.each do |order_product| %>
+                  <%= order_product.product.name %>
+                <% end %>
               </td>
               <td><%= order.total_price %>円</tb>
               <td><%= order.order_status %></td>

@@ -1,12 +1,11 @@
 class Public::OrdersController < ApplicationController
   def index
     @orders = Order.all
-    @product = OrderProduct.where(product_id:product.id)
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_product = OrderProduct.find(params[:id])
+    @orders = Order.all
   end
 
   def new
