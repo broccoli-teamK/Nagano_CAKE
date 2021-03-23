@@ -16,6 +16,8 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @cart_product = current_customer.cart_products
     if @order.save
       redirect_to orders_thanks_path
     else
@@ -25,6 +27,14 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
+    @cart_product = current_customer.cart_products
+    
+    @order.postage = 800
+    @order.total_price = 0
+    @cart_product.each do |cp|
+      @order.total_price += cp.quantity * cp.product.price
+    end
+    @billing_amount =  @order.postage + @order.total_price
     
     if params[:order][:address_option] == "0"
       @order.shipping_postal_code = current_customer.postal_code
