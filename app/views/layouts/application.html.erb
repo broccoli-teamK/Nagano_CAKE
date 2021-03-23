@@ -16,8 +16,10 @@
         <div class="container">
           <!--ロゴ画像(root_pathにリンク)-->
           <a class="navbar-brand" href="/" ></a>
-          <!--ログイン成功時やログアウト時に表示されるnotice-->
-          <id class="notice"><%= flash[:notice] %></id>
+          <!--ログインユーザー-->
+          <% if customer_signed_in? %>
+            <id class="welcome">ようこそ、<%= current_customer.last_name %>さん！</id>
+            <% end %>
           <!---->
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
