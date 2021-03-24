@@ -32,7 +32,7 @@
       <td>
         <%= form_with model: @order, url: admin_order_path(@order), local:true, class: "form-row" do |f| %>
           <%= f.select :order_status, Order.order_statuses_i18n.invert %>
-          <%= f.submit "更新" %>
+          <%= f.submit " 更新 ", class: 'btn btn-success' %>
         <% end %>
       </td>
     </tr>
@@ -63,7 +63,7 @@
           <td>
             <%= form_with model: order_product, url: admin_order_product_path(order_product), method: :patch, local:true, class: "form-row" do |f| %>
               <%= f.select :product_status, OrderProduct.product_statuses_i18n.invert %>
-              <%= f.submit "更新" %>
+              <%= f.submit "更新", class: 'btn btn-success' %>
             <% end %>
           </td>
         </tr>

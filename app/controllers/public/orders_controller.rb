@@ -1,12 +1,12 @@
 class Public::OrdersController < ApplicationController
   def index
     @orders = Order.all
-    @product = OrderProduct.where(product_id:product.id)
+    
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_product = OrderProduct.find(params[:id])
+    @orders = Order.all
   end
 
   def new
@@ -18,15 +18,17 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     if @order.save
+
       @cart_products = current_customer.cart_products.all
-         @cart_products.each do |cart_product|
-           @order_products = @order.order_products.new
-           @order_products.product_id = cart_product.product.id
-           @order_products.quantity = cart_product.quantity
-           @order_products.tax_in_price = cart_product.product.price
-           @order_products.save
-           current_customer.cart_products.destroy_all
-         end
+        @cart_products.each do |cart_product|
+          @order_products = @order.order_products.new
+          @order_products.product_id = cart_product.product.id
+          @order_products.quantity = cart_product.quantity
+          @order_products.tax_in_price = cart_product.product.price
+          @order_products.save
+          current_customer.cart_products.destroy_all
+        end
+
       redirect_to orders_thanks_path
     else
       render :confirm

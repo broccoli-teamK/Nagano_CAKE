@@ -1,43 +1,47 @@
 <div class="container">
-  <div class="col-md-8">
+
   <div class="row no-gutters">
+    <div class="col-md-8 mb-3">
+      <h4 class="my-5 mx-4 w-50"><span class="bg-light">　ジャンル一覧・追加　</span></h4>
 
-    <h4 class="my-4 mx-4 w-50"><span class="bg-light">　ジャンル一覧・追加　</span></h4>
-
-    <div class="row">
-    <%= form_with model: @genre, url: admin_genres_path, local:true do |f| %>
-    <div class="form-group">
-      <%= f.label :genre_name, 'ジャンル名' %>
-      <%= f.text_field :genre_name, placeholder: "ジャンル名", size: "20x3" %>
-      <%= f.submit '新規登録', class: 'btn btn-success' %>
-    </div>
-    <% end %>
-    </div>
-
-    <table class="table table-hover">
-      <thead class="thead-light">
-      <tr>
-        <th colspan="2", class="text-center">ジャンル</th>
-        <th colspan="1"></th>
-      </tr>
-      </thead>
-      <% @genres.each do |genre| %>
-      <tbody>
-      <tr>
-        <td>
-        <div class:"text-left">
-          <%= genre.genre_name %>
-        </div>
-        </td>
-        <td></td>
-        <td>
-          <%= link_to "編集する",  edit_admin_genre_path(genre.id),  class: "btn float-right btn-success px-4" %>
-        </td>
-      </tr>
-      </tbody>
+      <%= form_with model: @genre, url: admin_genres_path, local:true do |f| %>
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label :genre_name, 'ジャンル名' %></td>
+            <td><%= f.text_field :genre_name, placeholder: "ジャンル名", size: "30x3" %></td>
+            <td><%= f.submit '　新規登録　', class: 'btn btn-success btn-lg' %></td>
+          </tr>
+        </table>
       <% end %>
-    </table>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table table-hover">
+        <thead class="thead-light">
+        <tr>
+          <th colspan="2", class="text-center">ジャンル</th>
+          <th colspan="1"></th>
+        </tr>
+        </thead>
+        <% @genres.each do |genre| %>
+        <tbody>
+        <tr>
+          <td>
+            <div class:"text-left">
+              <%= genre.genre_name %>
+            </div>
+          </td>
+          <td></td>
+          <td>
+            <%= link_to "編集する",  edit_admin_genre_path(genre.id),  class: "btn float-right btn-success px-4" %>
+          </td>
+        </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
-  </div>
+
 </div>
