@@ -1,48 +1,20 @@
 <h1>商品詳細</h1>
-<span><%= attachment_image_tag product_image, :image, :fill, 40, 40, size:"40x40" %></span>
-<div classs="group">
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th></th>
+    <div class="container">
+      <div class="row mt-5 ml-5">  
+        <div class="d-inline">
+          <span><%= attachment_image_tag(@product, :image , :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
+        </div>
+         <table class="table col-lg-5 d-inline">
+            <tr class="text-left">
+                <th class="d-block">商品名<span class="ml-5"><%= @product.name %></span></th>
+                <th class="d-block">商品説明<span class="ml-5"><%= @product.introduction %></span></th>
+                <th class="d-block">ジャンル<span class="ml-5"><%= @product.genre %></span></td>
+                <th class="d-block">税込価格（税抜価格）<span class="ml-5"><%= @product.price %></span></th>
+                <th class="d-block">販売ステータス<span class="ml-5"><%= @product.sales_status %></span></th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    商品名
-                </td>
-                <td>
-                    <span><%= @product.name %></span>
-                </td>
-            </tr>
-             <tr>
-                <td>
-                    商品説明
-                </td>
-                <td>
-                    <span><%= @product.introduction %></span>
-                </td>
-                <td>
-                    ジャンル
-                </td>
-                <td>
-                    <span><%= @product.genre_id %></span>
-                </td>
-                <td>
-                    税込価格（税抜価格）
-                </td>
-                <td>
-                    <span><%= @product.price %></span>
-                </td>
-                <td>
-                    販売ステータス
-                </td>
-                <td>
-                    <span><%= @product.sales_status %></span>
-                </td>
-            </tr>
-        </tbody>
-        <%= link_to "編集する", edit_admin_product_path(@product.id), class: "btn btn-secondary" %>
-</div>
+        </table>
+      </div>      
+    </div> 
+<div class="text-center">
+  <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success" %>
+</div> 
