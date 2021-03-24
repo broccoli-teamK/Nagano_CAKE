@@ -17,7 +17,11 @@
               <td><%= customer.id %></td>
               <td><%= link_to "#{customer.last_name+customer.first_name}", admin_customer_path(customer) %></td>
               <td><%= customer.email %></td>
-              <td><%= customer.customer_status %></td>
+              <% if customer.customer_status==true %>
+                <td><p class="text-success font-weight-bold"><%= customer.customer_status ? '有効' : '退会' %></p></td>
+              <% else %>
+                <td><p class="text-black-50"><%= customer.customer_status ? '有効' : '退会' %></p></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
