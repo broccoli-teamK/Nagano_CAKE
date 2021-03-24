@@ -1,21 +1,32 @@
-<h1>商品詳細</h1>
+  <div class="row">
+    <div class="col-md-9">
+      <h4 class="mt-4 mb-4"><span class="bg-light">　商品詳細　</span></h4>
+    </div>
+  </div>
 
     <div class="container">
-      <div class="row mt-5 ml-5">  
+      <div class="row mt-5 ml-5">
         <div class="d-inline">
-          <span><%= attachment_image_tag(@product, :image , :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
+          <span><%= attachment_image_tag(@product, :image , width:"300px", format: 'png', fallback: "no_image.jpg") %></span>
         </div>
          <table class="table col-lg-5 d-inline">
             <tr class="text-left">
                 <th class="d-block">商品名<span class="ml-5"><%= @product.name %></span></th>
                 <th class="d-block">商品説明<span class="ml-5"><%= @product.introduction %></span></th>
-                <th class="d-block">ジャンル<span class="ml-5"><%= @product.genre %></span></td>
-                <th class="d-block">税込価格（税抜価格）<span class="ml-5"><%= @product.price %></span></th>
-                <th class="d-block">販売ステータス<span class="ml-5"><%= @product.sales_status %></span></th>
+                <th class="d-block">ジャンル<span class="ml-5"><%= @product.genre.genre_name %></span></td>
+                <th class="d-block">税込価格（税抜価格）<span class="ml-5"><%= @product.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %>(<%= @product.price.to_s(:delimited, delimiter: ',') %>)</span></th>
+                <th class="d-block">販売ステータス
+                  <span class="ml-5">
+                  <% if @product.sales_status==true %>
+                    <span class="text-success font-weight-bold ml-5"><%= @product.sales_status ? '販売中' : '販売停止' %></span>
+                  <% else %>
+                    <span class="text-black-50 ml-5"><%= @product.sales_status ? '販売中' : '販売停止' %></span>
+                  <% end %>
+                </th>
             </tr>
         </table>
-      </div>      
-    </div> 
+      </div>
+    </div>
 <div class="text-center">
   <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success" %>
-</div> 
+</div>
