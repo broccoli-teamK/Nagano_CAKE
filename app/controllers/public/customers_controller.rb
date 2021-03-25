@@ -4,9 +4,18 @@ class Public::CustomersController < ApplicationController
   end
 
   def confirm
+    @customer = current_customer
   end
 
   def withdraw
+    customer = current_customer
+    
+    if customer.update(customer_status: false)
+      reset_session
+      redirect_to root_path
+    else
+      render :confirm
+    end
   end
 
   def edit

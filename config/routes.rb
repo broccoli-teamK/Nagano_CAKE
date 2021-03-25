@@ -47,10 +47,10 @@ Rails.application.routes.draw do
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks' => 'orders#thanks'
     get '/orders/:id' => 'orders#show', as: 'order'
-    resources :customers, only: [:edit, :update]
     get '/customers/my_page' => 'customers#show'
     get '/customers/confirm' => 'customers#confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
+    resources :customers, only: [:edit, :update]
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
