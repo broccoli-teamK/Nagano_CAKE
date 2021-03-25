@@ -1,17 +1,15 @@
-<h1>商品詳細</h1>
-
-    <div class="container">
-      <div class="row mt-5 ml-5">  
-        <div class="d-inline">
-          <span><%= attachment_image_tag(@product, :image , :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
-        </div>
-         <table class="table col-lg-5 d-inline">
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+      <h4 class="mt-4 mb-4"><span class="bg-light">　商品詳細　</span></h4>
+      <%= attachment_image_tag(@product, :image , :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %>
+         <table class="table table-borderless">
             <tr class="text-left">
-                <th class="d-block">商品名<span class="ml-5"><%= @product.name %></span></th>
-                <th class="d-block">商品説明<span class="ml-5"><%= @product.introduction %></span></th>
-                <th class="d-block">ジャンル<span class="ml-5"><%= @product.genre %></span></td>
-                <th class="d-block">税込価格（税抜価格）<span class="ml-5"><%= @product.price %></span></th>
-                <th class="d-block">販売ステータス<span class="ml-5"><%= @product.sales_status %></span></th>
+              <td>商品名<%= @product.name %></td>
+              <td>商品説明<%= @product.introduction %></span></th>
+              <th>ジャンル<span class="ml-5"><%= @product.genre %></span></td>
+              <th>税込価格（税抜価格）<span class="ml-5"><%= @product.price %></span></th>
+              <th>販売ステータス<span class="ml-5"><%= @product.sales_status %></span></th>
             </tr>
         </table>
       </div>      
