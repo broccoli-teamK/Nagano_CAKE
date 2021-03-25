@@ -9,10 +9,10 @@
  </div>
 
  <div class="container">
-   <div class="row">
+   <div class="row mx-auto">
        <% @products.each do |product| %>
-         <div class="col-lg-6 mb-5">
-           <%=link_to attachment_image_tag(product, :image , :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), product_path(product) %>
+         <div class="col-lg-3 col-md-4 col-sm-10 mb-5">
+           <%=link_to attachment_image_tag(product, :image, width:"90%", format: 'jpeg', fallback: "no_image.jpg"), product_path(product) %>
             <div class="d-block">
               <%= product.name %>
               <div class="d-block">

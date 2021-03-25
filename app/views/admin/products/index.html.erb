@@ -1,5 +1,4 @@
 <div class="container">
-  <div class="row">
     <div class="col-sm-9 mx-auto">
       <h4 class="mt-4 mb-4"><span class="bg-light">　商品一覧　</span></h4>
       <%= link_to "New Product", new_admin_product_path %>
@@ -29,7 +28,7 @@
             <% end %>
           </tbody>
         </table>
-      <p class="mt-4"><%= paginate @products %></p>    
+      <p class="mt-4"><%= paginate @products %></p>
     </div>
   </div>
 </div>

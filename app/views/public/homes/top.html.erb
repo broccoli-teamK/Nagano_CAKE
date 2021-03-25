@@ -10,10 +10,10 @@
               <div class="card-header">
                 <h4 class="font-weight-normal text-danger text-left">新着商品</h4>
               </div>
-              
+
                 <div class="text-dark mt-4">
                   <% @top.each.with_index(1) do |top, i| %>
-                        <div class=""><%=link_to attachment_image_tag(top, :image , :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), product_path(top) %></div>
+                        <%=link_to attachment_image_tag(top, :image , width:"100px", format: 'jpeg', fallback: "no_image.jpg"), product_path(top) %>
                         <h2 class="text-center"><%= top.name %></h2>
                         <h5 class="text-center"><%= top.introduction %></h5>
                         <h4 class="text-center">¥<%= top.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %>円(税込)</h4>
