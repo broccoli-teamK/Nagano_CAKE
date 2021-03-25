@@ -16,7 +16,7 @@
                         <%=link_to attachment_image_tag(top, :image , width:"100px", format: 'jpeg', fallback: "no_image.jpg"), product_path(top) %>
                         <h2 class="text-center"><%= top.name %></h2>
                         <h5 class="text-center"><%= top.introduction %></h5>
-                        <h4 class="text-center">¥<%= top.price.to_s(:delimited, delimiter: ',') %>円(税込)</h4>
+                        <h4 class="text-center">¥<%= top.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %>円(税込)</h4>
                         <% end %>
                 </div>
           </div>

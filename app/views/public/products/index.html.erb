@@ -2,7 +2,7 @@
  <div class="container">
    <div class="row">
      <div class="col-lg-5">
-       <h1>商品一覧</h1>
+       <h4 class="mt-4 mb-4"><span class="bg-light">　商品一覧　</span></h4>
        <h3>全<%=Product.count%>件</h3>
      </div>
    </div>
@@ -16,7 +16,7 @@
             <div class="d-block">
               <%= product.name %>
               <div class="d-block">
-                ¥<%= product.price %>円
+                ¥<%= product.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %>
               </div>
             </div>
          </div>
@@ -26,7 +26,7 @@
 
  <div class="container">
    <div class="row">
-     <div class="col-lg-5">
+     <div class="col">
        <%= paginate @products %>
      </div>
    </div>

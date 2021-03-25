@@ -6,7 +6,7 @@ class Public::CartProductsController < ApplicationController
     @total_price = 0
     @cart_products.each do |cp|
       # @total_price = @total_price + (cp.quantity * cp.product.price)
-      @total_price += cp.quantity * cp.product.price
+      @total_price += cp.quantity * cp.product.tax_included_price.to_i
     end
   end
 

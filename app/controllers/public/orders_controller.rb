@@ -24,7 +24,7 @@ class Public::OrdersController < ApplicationController
           @order_products = @order.order_products.new
           @order_products.product_id = cart_product.product.id
           @order_products.quantity = cart_product.quantity
-          @order_products.tax_in_price = cart_product.product.price
+          @order_products.tax_in_price = cart_product.product.tax_included_price.to_i
           @order_products.save
           current_customer.cart_products.destroy_all
         end
@@ -42,7 +42,7 @@ class Public::OrdersController < ApplicationController
     @order.postage = 800
     @order.total_price = 0
     @cart_product.each do |cp|
-      @order.total_price += cp.quantity * cp.product.price
+      @order.total_price += cp.quantity * cp.product.tax_included_price.to_i
     end
     @billing_amount =  @order.postage + @order.total_price
 
