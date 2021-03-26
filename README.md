@@ -7,13 +7,15 @@
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト<br>
 元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。<br>
 InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
+![people-2557408_1920](https://user-images.githubusercontent.com/77834661/112675606-b8be5d00-8eaa-11eb-8b56-78092710f987.jpg)
+
 ## 　　　　　　　　　　　　　　　　　　-Details-
 ながのCAKEで取り扱っている商品をネットでご購入いただけます。<br>
 新規会員登録後ご希望のお品物を購入することが可能になり、指定の配送先へ郵送いたします。<br>
 商品の閲覧はログインなしでも行えます。<br>
 管理者画面からは商品の新規登録や、注文ステータスの変更などが行えます。<br>
 新商品をぜひこのページからご追加ください。
-
+![muffins-1329679_1920](https://user-images.githubusercontent.com/77834661/112675808-f4f1bd80-8eaa-11eb-938e-28ab0846474a.jpg)
 ## :octocat:Languages
 Rails 5.2.4
 ## :globe_with_meridians:SiteURL
