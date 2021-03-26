@@ -1,4 +1,6 @@
 class Public::ProductsController < ApplicationController
+  before_action :authenticate_customer!,except: [:index, :show]
+  
   def show
     @cart_product = CartProduct.new
     @product = Product.find(params[:id])
@@ -9,6 +11,8 @@ class Public::ProductsController < ApplicationController
   end
   
   private
+  
+  
   def products_params
     params.require(:product).permit(:genre, :name, :introduction, :price, :image, :sales_status)
   end
