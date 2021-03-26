@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   validates :payment_method, presence: true
   validates :total_price, presence: true
   validates :postage, presence: true
-  validates :order_status,　inclusion: { in: [true, false] }
+  validates :order_status, inclusion: { in: [true, false] }
 
   belongs_to :customer
   has_many :order_products, dependent: :destroy
