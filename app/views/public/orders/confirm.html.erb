@@ -14,7 +14,10 @@
           </thead>
           <% @cart_product.each do |cart_product| %>
           <tbody>
-            <td><%= cart_product.product.name %></td>
+            <td>
+              <%=link_to attachment_image_tag(cart_product.product, :image , width: "50px", format: 'jpeg', fallback: "no_image.jpg"), class:"thumbnail inner" %>
+              <%= cart_product.product.name %>
+            </td>
             <td><%= cart_product.product.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %></td>
             <td><%= cart_product.quantity %></td>
             <td><%= (cart_product.quantity * cart_product.product.tax_included_price.to_i).to_s(:delimited, delimiter: ',') %></td>
