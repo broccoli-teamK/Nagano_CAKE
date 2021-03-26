@@ -19,6 +19,8 @@ Rails 5.2.4
 ## :globe_with_meridians:SiteURL
 ### [ゆーあるえのりんく](url)
 ## :thought_balloon:Usage
-git cloneなどの使用方法ーーーー！！！
+`$ git clone https://`  
 ## 　　　　　　　　　　　　　　　　　-Contributors- 
- 　
+[sumi-re01](https://github.com/sumi-re01)<br>
+[yamada-yuki0401](https://github.com/yamada-yuki0401)<br>
+[cairo387](https://github.com/cairo387)<br>
