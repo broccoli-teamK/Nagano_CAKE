@@ -1,4 +1,9 @@
 class OrderProduct < ApplicationRecord
+  validates :order_id, presence: true
+  validates :product_id, presence: true
+  validates :quantity, presence: true
+  validates :product_status, presence: true
+  validates :tax_in_price, presence: true
 
   belongs_to :product
   belongs_to :order

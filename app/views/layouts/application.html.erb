@@ -12,35 +12,30 @@
   <body>
 
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-warning border-bottom shadow-sm">
-        <div class="container">
-          <!--ロゴ画像(root_pathにリンク)-->
-          <a class="navbar-brand" href="/" ></a>
-          <!--ログインユーザー-->
-          <% if customer_signed_in? %>
-            <id class="welcome">ようこそ、<%= current_customer.last_name %>さん！</id>
-            <% end %>
-          <!---->
+      <div class="headline">
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto ">
-<!--会員がログインしている時-->
+        <nav>
+          <a href="/"><div class="logo-image"></div></a>
+
+          <% if customer_signed_in? %>
+            <div class="welcome">ようこそ、<%= current_customer.last_name %>さん！</div>
+          <% end %>
+
+          <ul class="nav-list">
+            <!--会員がログインしている時-->
               <% if customer_signed_in? %>
                 <%= render 'layouts/customer_header' %>
-<!--管理者がログインしている時-->
+            <!--管理者がログインしている時-->
               <% elsif admin_signed_in? %>
                 <%= render 'layouts/admin_header' %>
-<!--ログインしていないユーザー-->
+            <!--ログインしていないユーザー-->
               <% else %>
                 <%= render 'layouts/header' %>
               <% end %>
-             </ul>
-          </div>
-        </div>
-      </nav>
+          </ul>
+        </nav>
+
+      </div>
     </header>
 
     <main>
@@ -48,6 +43,8 @@
         <%= yield %>
       </div>
     </main>
+
+    <footer></footer>
 
   </body>
 </html>

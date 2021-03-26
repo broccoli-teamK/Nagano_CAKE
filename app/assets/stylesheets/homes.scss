@@ -1,16 +1,49 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
 .top{
-  background-image: url(cake.png);
+  background-image: url(cake-back.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 
 }
-.text-center h1{
+.top-text {
+  margin: 100px 0;
+  color: #877670;
+  background: rgba(240, 255, 247,0.7);
+}
+
+.top-text h1{
     font-family: ヒラギノ丸ゴ Pro W4;
+    margin: 30px;
+}
+.top-text p{
+  margin: 50px;
+
+}
+
+// about
+
+.about{
+  width: 100%;
+  background-image: url(cake2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.cover-container {
+  margin-bottom: 200px;
 }
 
 .about-main{
@@ -20,22 +53,19 @@
   letter-spacing: 10px;
 }
 
-.about_sub{
-}
-
-.about{
-  background-image: url(cake2.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 
 // top新着
 
+// .new-box {
+//   width: 90%;
+//   margin: 0 auto;
+// }
+// .new-box h4 {
+//   padding: 5px 10px 5px ;
+//   background-color: rgba(252,252,252,0.5);
+// }
+
 .new-products {
-  margin: 0 auto;
   display: flex;
   flex: flex-wrap;
 
@@ -45,7 +75,7 @@
   width: 30%;
   margin: 10px auto;
   color: black;
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 .thumbnail {
