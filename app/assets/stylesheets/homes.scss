@@ -31,7 +31,39 @@
   background-attachment: fixed;
 }
 
-img{
-    margin-left:100px;
-    width:250px;
+
+// top新着
+
+.new-products {
+  margin: 0 auto;
+  display: flex;
+  flex: flex-wrap;
+
+}
+
+#new-product {
+  width: 30%;
+  margin: 10px auto;
+  color: black;
+  margin-right: 20px;
+}
+
+.thumbnail {
+  width: 100%;
+  // height: 100px;
+  margin: 0;
+  padding: 10px;
+  display: table;
+  table-layout: fixed;
+}
+
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+}
+
+#new-product:last-child {
+  margin-right: 0px;
 }
