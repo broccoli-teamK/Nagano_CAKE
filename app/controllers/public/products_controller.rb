@@ -7,7 +7,7 @@ class Public::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.page(params[:page]).per(8)
+    @products = Product.where(sales_status: true).page(params[:page]).per(8)
   end
   
   private

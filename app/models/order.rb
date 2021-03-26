@@ -10,6 +10,11 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :order_products, dependent: :destroy
+  
+  validates :payment_method, presence: true
+  validates :shipping_postal_code, presence: true
+  validates :shipping_address, presence: true
+  validates :shipping_name, presence: true
 
   enum payment_method: { credit: 0, bank: 1}
 
