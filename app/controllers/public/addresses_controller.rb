@@ -11,6 +11,8 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path
     else
+      @address = Address.new
+      @addresses = Address.where(customer_id: current_customer.id)
       render :index
     end
   end
@@ -24,6 +26,7 @@ class Public::AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to addresses_path
     else
+      @address = Address.find(params[:id])
       render :edit
     end
   end

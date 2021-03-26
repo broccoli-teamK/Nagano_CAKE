@@ -19,11 +19,7 @@
           <%= f.text_field :first_name_kana, autofocus: true, placeholder: "ミチコ", class:"col-sm-2 form-control" %>
         </div>
         <div class="form-group form-inline">
-          <%= f.label :email, 'メールアドレス', class:"col-sm-4 control-label" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"col-sm-2 form-control" %>
-        </div>
-        <div class="form-group form-inline">
-          <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-sm-4 control-label" %>
+          <%= f.label :postal_code, "郵便番号", class:"col-sm-4 control-label" %>
           <%= f.text_field :postal_code, autofocus: true, placeholder: "0000000", class:"col-sm-2 form-control" %>
         </div>
         <div class="form-group form-inline">
@@ -31,8 +27,12 @@
           <%= f.text_field :address, autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0", class:"col-sm-5 form-control" %>
         </div>
         <div class="form-group form-inline">
-          <%= f.label :phone_number, "電話番号(ハイフンなし)", class:"col-sm-4 control-label" %>
+          <%= f.label :phone_number, "電話番号", class:"col-sm-4 control-label" %>
           <%= f.text_field :phone_number, autofocus: true, placeholder: "00000000000", class:"col-sm-2 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :email, 'メールアドレス', class:"col-sm-4 control-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"col-sm-2 form-control" %>
         </div>
         <div class="text-center">
           <%= f.submit "編集内容を保存", class:"col-sm-2 btn btn-success mt-3" %>

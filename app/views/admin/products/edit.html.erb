@@ -1,24 +1,39 @@
-<h1>商品編集</h1>
-<div class="container ml-5">
-  <div class="row ml-5">
-    <div class="col-lg-3 text-left mt-5 ml-5">
-          <h6 class="mb-5">商品画像</h6>
-          <h6 class="mb-5">商品名</h6>
-          <h6 class="mb-5">商品説明</h6>
-          <h6 class="mb-5">ジャンル</h6>
-          <h6 class="mb-5">税抜価格</h6>
-          <h6 class="mb-5">販売ステータス</h6>
+ <div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="mt-4 mb-4"><span class="bg-light">　商品新規登録　</span></h4>
+      <%= form_with model:@product, url: admin_product_path, local:true do |f| %>
+        <div class="form-group form-inline">
+          <%= f.label :image, "商品画像", class:"col-sm-3 control-label ml-5" %>
+          <p class="col-sm-2 ml-4"><%= f.attachment_field :image %></p>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :name, '商品名', class:"col-sm-4 control-label" %>
+          <%=  f.text_field :name, autofocus: true, placeholder:"商品名", class:"col-sm-3 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :introduction, "商品説明", class:"col-sm-4 control-label" %>
+          <%= f.text_area :introduction, autofocus: true, placeholder:"ここに説明文を記述します", class:"col-sm-3 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :genre_id, "ジャンルID", class:"col-sm-4 control-label" %>
+          <%= f.collection_select :genre_id, @genres, :id, :genre_name, class:"col-sm-3 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :price, "税抜き価格", class:"col-sm-4 control-label" %>
+          <%=  f.text_field :price, autofocus: true, placeholder:"1000", class:"col-sm-3 form-control" %>
+        </div>
+        <div class="form-group form-inline">
+          <%= f.label :sales_status, "販売ステータス", class:"col-sm-4 control-label" %>
+          <%= f.radio_button :sales_status, TRUE, checked: true %>
+          <h5 class="mt-2 ml-1">販売中</h5>
+          <%= f.radio_button :sales_status, FALSE, class:"ml-4" %>
+          <h5 class="mt-2 ml-1">販売停止中</h5>
+        </div>
+        <div class="text-center">
+          <%= f.submit "変更を保存", class:"col-sm-2 btn btn-success mt-3" %>
+        </div>
+      <% end %>
+      </div>
     </div>
-    <div class="d-inline mt-5 ml-5">
-        <%= form_with model: @product,url: admin_product_path, local: true do |f| %>
-          <div class="mb-5"><label for="inputImage"></label><%= f.attachment_field :image, placeholder: "プロフィール画像" %></div>
-          <div class="mb-4"><%= f.text_field :name, placeholder: 'name' %></div>
-          <div class="mb-4"><%= f.text_area :introduction, placeholder: 'introduction' %></div>
-          <div class="mb-4"><%= f.collection_select :genre_id, @genres, :id, :genre_name, class:"form-control" %></div>
-          <div class="mb-5"><%= f.text_field :price, placeholder: 'price' %></div>
-          <div class="mb-5"><%= f.radio_button :sales_status, :販売中 %>販売中<span class="ml-3"><%= f.radio_button :sales_status, :販売停止 %>販売停止中</span></div>
-          <%= f.submit '変更を保存', class:"btn btn-success" %>
-        <% end %>
-    </div>     
-  </div>      
-</div>    
+  </div>
