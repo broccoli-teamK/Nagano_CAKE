@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :order_validation, only: [:new, :confirm]
   
   def index
     @orders = Order.where(customer_id: current_customer.id).page(params[:page]).per(10)
@@ -56,6 +57,20 @@ class Public::OrdersController < ApplicationController
       @order.shipping_postal_code = @address.postal_code
       @order.shipping_address = @address.address
       @order.shipping_name = @address.address_name
+    elsif params[:order][:address_option] == "2"
+      if (@order.shipping_postal_code.empty?)
+        @order = Order.new
+        @addresses = current_customer.addresses
+        render :new
+      elsif (@order.shipping_address.empty?)
+        @order = Order.new
+        @addresses = current_customer.addresses
+        render :new
+      elsif (@order.shipping_name.empty?)
+        @order = Order.new
+        @addresses = current_customer.addresses
+        render :new
+      end
     end
 
   end
@@ -68,12 +83,12 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:shipping_postal_code, :shipping_address, :shipping_name, :payment_method, :total_price, :postage)
   end
-
-  def products_name_params
-    params.require(:product).permit(:genre, :name, :introduction, :price, :image, :sales_status)
+  
+  def order_validation
+    if current_customer.cart_products.exists?
+    else
+      redirect_to cart_products_path
+    end
   end
 
-  def order_product_params
-    params.require(:order_product).permit(:order, :product, :quantity, :product_status, :tax_in_price)
-  end
 end
