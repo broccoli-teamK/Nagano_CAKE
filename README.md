@@ -18,10 +18,31 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ![muffins-1329679_1920](https://user-images.githubusercontent.com/77834661/112675808-f4f1bd80-8eaa-11eb-938e-28ab0846474a.jpg)
 ## :octocat:Languages
 Rails 5.2.4
+## 　　　　　　　　　　　　　　　-Gem Files-
+〇devise<br>
+〇refile<br>
+〇refile-mini_magick<br>
+〇bootstrap<br>
+〇jquery-rails<br>
+〇font-awesome<br>
+〇kaminari<br>
+〇enum_help<br>
+
 ## :globe_with_meridians:SiteURL
 ### [ゆーあるえのりんく](url)
 ## :thought_balloon:Usage
-`$ git clone https://git@github.com:broccoli-teamK/Nagano_CAKE.git`  
+下記の手順に則り、実行してください。<br>
+<br>
+`$ git clone https://git@github.com:broccoli-teamK/Nagano_CAKE.git`<br>
+`$ rails db:migrate`<br>
+`$ bundle install`<br>
+`$ rails db:seed`<br>
+<br>
+管理者メールアドレス：Nagano-cake@admin.com<br>
+管理者パスワード：admin_sign_in<br>
+<br>
+管理者側でログインする場合は上記のアドレスとパスワードを入力してください。
+
 ## :moyai:Contributors 
 [sumi-re01](https://github.com/sumi-re01)<br>
 [yamada-yuki0401](https://github.com/yamada-yuki0401)<br>
