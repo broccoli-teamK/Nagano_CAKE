@@ -21,7 +21,7 @@ Rails 5.2.4
 ## :globe_with_meridians:SiteURL
 ### [ゆーあるえのりんく](url)
 ## :thought_balloon:Usage
-`$ git clone https://`  
+`$ git clone https://git@github.com:broccoli-teamK/Nagano_CAKE.git`  
 ## :moyai:Contributors 
 [sumi-re01](https://github.com/sumi-re01)<br>
 [yamada-yuki0401](https://github.com/yamada-yuki0401)<br>
