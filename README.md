@@ -47,11 +47,10 @@ Rails 5.2.4
 ![sumi-re01](https://avatars.githubusercontent.com/sumi-re01?s=50)
 [sumi-re01](https://github.com/sumi-re01)
 <br>
-
 ![yamada-yuki0401](https://avatars.githubusercontent.com/yamada-yuki0401?s=50)
 [yamada-yuki0401](https://github.com/yamada-yuki0401)
 <br>
-
 ![cairo387](https://avatars.githubusercontent.com/cairo387?s=50)
-[cairo387](https://github.com/cairo387)<br>
+[cairo387](https://github.com/cairo387)
+<br>
 
