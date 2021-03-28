@@ -50,7 +50,7 @@ Aboutページ表示機能<br>
 ## :octocat:Languages
 Ruby 2.6.3<br>
 Rails 5.2.4.5
-## 　　　　　　　　　　　　　　　-Gem Files-
+### 　　　　　　　　　　　　　　　-Gem Files-
 〇devise<br>
 〇refile<br>
 〇refile-mini_magick<br>
