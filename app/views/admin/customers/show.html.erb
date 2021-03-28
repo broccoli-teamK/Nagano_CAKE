@@ -1,2 +1,49 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<div class="cpntainer">
+  <div class="row">
+    <div class="col">
+      <h4 class="mt-4 mb-4"><span class="bg-light">　<%= @customer.last_name + @customer.first_name %>さんの会員詳細　</span></h4>
+      <table class="table table-borderless">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.last_name %>&nbsp;&nbsp;<%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.last_name_kana %>&nbsp;&nbsp;<%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <% if @customer.customer_status==true %>
+            <td><p class="text-success font-weight-bold"><%= @customer.customer_status ? '有効' : '退会' %></p></td>
+          <% else %>
+            <td><p class="text-black-50"><%= @customer.customer_status ? '有効' : '退会' %></p></td>
+          <% end %>
+        </tr>
+      </table>
+      <div class="text-center">
+          <%= link_to "編集する", edit_admin_customer_path(@customer), class:"col-sm-2 btn btn-success mt-3" %>
+          <%= link_to "注文履歴一覧を見る", admin_path(@customer), class:"col-sm-2 btn btn-primary mt-3 ml-5"%>
+        </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,41 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <div class="headline">
+
+        <nav>
+          <a href="/"><div class="logo-image"></div></a>
+
+          <% if customer_signed_in? %>
+            <div class="welcome">ようこそ、<%= current_customer.last_name %>さん！</div>
+          <% end %>
+
+          <ul class="nav-list">
+            <!--会員がログインしている時-->
+              <% if customer_signed_in? %>
+                <%= render 'layouts/customer_header' %>
+            <!--管理者がログインしている時-->
+              <% elsif admin_signed_in? %>
+                <%= render 'layouts/admin_header' %>
+            <!--ログインしていないユーザー-->
+              <% else %>
+                <%= render 'layouts/header' %>
+              <% end %>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer></footer>
+
   </body>
 </html>

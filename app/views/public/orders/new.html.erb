@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="mt-4 mb-4"><span class="bg-light">　注文情報入力　</span></h4>
+      <%= form_with model:@order, url:orders_confirm_path, method: :post, local:true do |f| %>
+        <h5 class="font-weight-bold mt-4">支払方法</h5>
+        <div class="form-group ml-5">
+          <%= f.radio_button :payment_method, :credit, checked: true %>
+          <%= f.label :payment_method, "クレジットカード" %>
+        </div>
+        <div class="form-group ml-5">
+          <%= f.radio_button :payment_method, :bank %>
+          <%= f.label :payment_method, "銀行振込" %>
+        </div>
+        <h5 class="font-weight-bold mt-4">お届け先</h5>
+        <div class="form-group ml-5">
+          <%= f.radio_button :address_option, 0, checked: true %>
+          <%= f.label :order_address, "ご自身の住所" %><br>
+          <div class="ml-4"><%= "〒#{current_customer.postal_code} #{current_customer.address}"%><br>
+                            <%= "#{current_customer.last_name}#{current_customer.first_name}"%>
+          </div>
+        </div>
+        　
+        <div class="form-group ml-5">
+          <%= f.radio_button :address_option, 1 %>
+          <%= f.label :order_address, "登録済住所から選択" %>
+          <div class="form-group ml-4">
+            <%= f.collection_select :order_address, @addresses, :id, :full_address, class:"form-control" %>
+          </div>
+        </div>
+        <div class="form-group ml-5">
+          <%= f.radio_button :address_option, 2 %>
+          <%= f.label :order_address, "新しいお届け先" %>
+          <div class="ml-4">
+            <div class="form-group form-inline">
+              <%= f.label :shipping_postal_code, "郵便番号(ハイフンなし)", class:"col-sm-3 control-label justify-content-start" %>
+              <%= f.text_field :shipping_postal_code, autofocus: true, placeholder: "0000000", class:"col-sm-2 form-control" %>
+            </div>
+            <div class="form-group form-inline">
+              <%= f.label :shipping_address, "住所", class:"col-sm-3 control-label justify-content-start" %>
+              <%= f.text_field :shipping_address, autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0", class:"col-sm-5 form-control" %>
+            </div>
+            <div class="form-group form-inline">
+              <%= f.label :shipping_name, "宛名", class:"col-sm-3 control-label justify-content-start" %>
+              <%= f.text_field :shipping_name, autofocus: true, placeholder: "令和道子", class:"col-sm-2 form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="actions text-center col-sm-10 ml-3">
+          <%= f.submit "確認画面へ進む" ,class:"col-sm-3 btn btn-primary btn-lg mt-3 mb-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

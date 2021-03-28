@@ -1,3 +1,25 @@
 // Place all the styles related to the cart_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.thumbnail {
+  width: 100%;
+  // height: 100px;
+  margin: 0;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
+}
+
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+}

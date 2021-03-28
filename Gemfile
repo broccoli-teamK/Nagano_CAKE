@@ -83,3 +83,6 @@ gem 'jp_prefecture'
 
 # ページング機能
 gem 'kaminari','~> 1.2.1'
+
+#enum日本語表記
+gem 'enum_help'

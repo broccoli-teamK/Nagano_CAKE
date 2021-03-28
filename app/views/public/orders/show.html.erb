@@ -1,2 +1,72 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 mx-auto">
+      <h4 class="mt-4 mb-4"><span class="bg-light">　注文履歴詳細　</span></h4>
+      
+      <div class="row">
+        <div class="col-md-8">
+          <h6 class="font-weight-bold">注文情報</h6>
+          <table class="table table-bordered mt-4 mb-4">
+            <tr>
+              <td class="table-active">注文日</td>
+              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            </tr>
+            <tr>
+              <td class="table-active">配送先</td>
+              <td>〒<%= @order.shipping_postal_code %><br><%= @order.shipping_address %><br><%= @order.shipping_name%></td>
+            </tr>
+            <tr>
+              <td class="table-active">支払方法</td>
+              <td><%= @order.payment_method_i18n %></td>
+            </tr>
+            <tr>
+              <td class="table-active">ステータス</td>
+              <td><%=@order.order_status_i18n%></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-3">
+          <h6 class="font-weight-bold">請求情報</h6>
+          <table class="table table-bordered mt-4 mb-4">
+            <tr>
+              <td class="table-active">商品合計</td>
+              <td><%= @order.total_price.to_s(:delimited, delimiter: ',') %></td>
+            </tr>
+            <tr>
+              <td class="table-active">送料</td>
+              <td><%= @order.postage.to_s(:delimited, delimiter: ',') %></td>
+            </tr>
+            <tr>
+              <td class="table-active font-weight-bold">ご請求額</td>
+              <td><%= (@order.postage + @order.total_price).to_s(:delimited, delimiter: ',') %></td>
+            </tr>
+          </table>  
+        </div>
+      </div>
+      
+      <div class="col-md-8">
+        <h6 class="font-weight-bold">注文内容</h6>
+          <table class="table table-bordered mt-4 mb-4">
+            <thead>
+              <tr>
+                <th class="table-active">商品名</th>
+                <th class="table-active">単価(税込)</th>
+                <th class="table-active">数量</th>
+                <th class="table-active">小計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @order.order_products.each do |order_product| %>
+                <tr>
+                  <td><%= order_product.product.name %></td>
+                  <td><%= order_product.product.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %></td>
+                  <td><%= order_product.quantity %></td>
+                  <td><%= (order_product.product.tax_included_price.to_i * order_product.quantity).to_s(:delimited, delimiter: ',') %></td>
+                </tr> 
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,2 +1,50 @@
-<h1>CartProducts#index</h1>
-<p>Find me in app/views/cart_products/index.html.erb</p>
+<div class="container">
+  <div class="row my-3">
+      <h1>ショッピングカート</h1>
+  </div>
+
+  <div class="col-lg-8 mb-3 text-right">
+      <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete,data: {confirm: 'カートを空にして本当によろしいですか？'}, class:"btn btn-danger" %>
+  </div>
+
+  <table class="table table-bordered col-lg-8">
+    <thead class="thead-light">
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th collaps="5"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @cart_products.each do |cart_product| %>
+      <tr>
+        <td>
+           <%=link_to attachment_image_tag(cart_product.product, :image , width: "50px", format: 'jpeg', fallback: "no_image.jpg"), class:"thumbnail inner" %>
+           <%= cart_product.product.name %>
+        </td>
+        <td><%= cart_product.product.tax_included_price.to_i.to_s(:delimited, delimiter: ',') %></td>
+        <td><%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch do |f|%>
+                <%=f.select :quantity, options_for_select([["1", 1],["2", 2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]], {selected: cart_product.quantity.to_i} )%>
+                <%=f.submit "変更",class:"btn btn-success" %>
+                <% end %></td>
+        <td><%= (cart_product.quantity * cart_product.product.tax_included_price.to_i).to_s(:delimited, delimiter: ',') %></td>
+        <td><%= link_to "削除", cart_product_path(cart_product), method: :delete ,class:"btn btn-danger"%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <table class="table col-lg-3">
+      <th class="thead-light">合計金額</th>
+
+      <th><%= @total_price.to_s(:delimited, delimiter: ',') %></th>
+  </table>
+
+    <%= link_to "買い物を続ける", root_path ,class:"btn btn-primary"%>
+    <% if @cart_products.present?%>
+      <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success" %>
+    <% end %>
+</div>

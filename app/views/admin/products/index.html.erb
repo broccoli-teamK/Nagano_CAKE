@@ -1,2 +1,41 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+    <div class="col-sm-9 mx-auto">
+
+      <div class="admin-index">
+        <h4 class="mt-4 mb-4"><span class="bg-light">　商品一覧　</span>
+        <%= link_to new_admin_product_path do%>
+          <i class="fas fa-plus size"></i>
+        <% end %>
+        </h4>
+      </div>
+
+      <table class="table table-hover">
+          <thead class="table-active">
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+              <th>ジャンル</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= link_to product.name, admin_product_path(product.id) %></td>
+              <td><%= product.price.to_s(:delimited, delimiter: ',') %></td>
+              <td><%= product.genre.genre_name %></td>
+              <% if product.sales_status==true %>
+                <td><p class="text-success font-weight-bold"><%= product.sales_status ? '販売中' : '販売停止' %></p></td>
+              <% else %>
+                <td><p class="text-black-50"><%= product.sales_status ? '販売中' : '販売停止' %></p></td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <p class="mt-4"><%= paginate @products %></p>
+    </div>
+  </div>
+</div>
