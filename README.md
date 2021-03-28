@@ -76,6 +76,7 @@ Rails 5.2.4.5
 管理者側でログインする場合は上記のアドレスとパスワードを入力してください。
 
 ## :moyai:Contributors 
+### Team：ブロッコリー
 ![sumi-re01](https://avatars.githubusercontent.com/sumi-re01?s=40)
 [sumi-re01](https://github.com/sumi-re01)
 <br>
