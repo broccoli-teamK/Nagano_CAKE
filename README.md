@@ -83,7 +83,7 @@ Rails 5.2.4.5
 ![yamada-yuki0401](https://github.com/github.png?size=40px)
 [yamada-yuki0401](https://github.com/yamada-yuki0401)
 <br>
-![cairo387](https://github.com/github.png?size=40)
+![cairo387](https://avatars.githubusercontent.com/cairo387?s=40)
 [cairo387](https://github.com/cairo387)
 <br>
 
