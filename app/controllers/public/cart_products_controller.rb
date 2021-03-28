@@ -1,9 +1,9 @@
 class Public::CartProductsController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def index
     @cart_products = current_customer.cart_products
-    
+
     @total_price = 0
     @cart_products.each do |cp|
       # @total_price = @total_price + (cp.quantity * cp.product.price)
@@ -14,6 +14,14 @@ class Public::CartProductsController < ApplicationController
   def create
     @cart_product = CartProduct.new(cart_product_params)
     @cart_product.customer_id = current_customer.id
+    @cart_products = current_customer.cart_products.all
+    @cart_products.each do |cart_product|
+      if cart_product.product_id == @cart_product.product_id
+        new_quantity = cart_product.quantity + @cart_product.quantity
+        cart_product.update_attribute(:quantity, new_quantity)
+        @cart_product.delete
+      end
+    end
     @cart_product.save
     redirect_to cart_products_path
   end
@@ -35,7 +43,7 @@ class Public::CartProductsController < ApplicationController
     @cart_products.destroy_all
     redirect_to products_path
   end
-  
+
   private
   def quantity_params
     params.require(:cart_product).permit(:quantity)
