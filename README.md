@@ -9,7 +9,7 @@
 InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
 ![people-2557408_1920](https://user-images.githubusercontent.com/77834661/112675606-b8be5d00-8eaa-11eb-8b56-78092710f987.jpg)
 
-## 　　　　　　　　　　　　　　　　-Details-
+## 　　　　　　　　　　　　　　　-Details-
 ながのCAKEで取り扱っている商品をネットでご購入いただけます。<br>
 新規会員登録後ご希望のお品物を購入することが可能になり、指定の配送先へ郵送いたします。<br>
 商品の閲覧はログインなしでも行えます。<br>
@@ -17,7 +17,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 新商品をぜひこのページからご追加ください。
 ![muffins-1329679_1920](https://user-images.githubusercontent.com/77834661/112675808-f4f1bd80-8eaa-11eb-938e-28ab0846474a.jpg)
 ## :black_nib:Features
-###  会員側
+###  　　　　　　　　　　　　　　-CustomersSide-
 ログイン機能<br>
 ログアウト機能<br>
 Topページ表示機能<br>
@@ -34,7 +34,7 @@ Aboutページ表示機能<br>
 配送先情報一覧表示・登録・削除機能<br>
 配送先情報編集機能<br>
 
-###  管理者側
+###  　　　　　　　　　　　　　　-AdminSide-
 ログイン機能<br>
 ログアウト機能<br>
 商品情報新規登録機能<br>
