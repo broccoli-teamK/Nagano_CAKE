@@ -60,8 +60,6 @@ Rails 5.2.4.5
 〇kaminari<br>
 〇enum_help<br>
 
-## :globe_with_meridians:SiteURL
-### [ゆーあるえのりんく](url)
 ## :thought_balloon:Usage
 下記の手順に則り、実行してください。<br>
 <br>
