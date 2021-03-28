@@ -17,7 +17,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 新商品をぜひこのページからご追加ください。
 ![muffins-1329679_1920](https://user-images.githubusercontent.com/77834661/112675808-f4f1bd80-8eaa-11eb-938e-28ab0846474a.jpg)
 ## :black_nib:Features
-###  　　　　　　　　　　　　　　-CustomersSide-
+###  CustomersSide
 ログイン機能<br>
 ログアウト機能<br>
 Topページ表示機能<br>
@@ -34,7 +34,7 @@ Aboutページ表示機能<br>
 配送先情報一覧表示・登録・削除機能<br>
 配送先情報編集機能<br>
 
-###  　　　　　　　　　　　　　　-AdminSide-
+###  AdminSide
 ログイン機能<br>
 ログアウト機能<br>
 商品情報新規登録機能<br>
